@@ -3,23 +3,23 @@ function pingProblemController(req, res) {
 }
 
 function addProblem(req, res) {
-  res.json({ message: "Add problem" });
+  res.status(501).json({ message: "Not implemented" });
 }
 
 function getProblem(req, res) {
-  res.json({ message: "Get problem" });
+  res.status(501).json({ message: "Not implemented" });
 }
 
 function getProblems(req, res) {
-  res.json({ message: "Get problems" });
+  res.status(501).json({ message: "Not implemented" });
 }
 
 function deleteProblem(req, res) {
-  res.json({ message: "Delete problem" });
+  res.status(501).json({ message: "Not implemented" });
 }
 
 function updateProblem(req, res) {
-  res.json({ message: "Update problem" });
+  res.status(501).json({ message: "Not implemented" });
 }
 
 module.exports = {
