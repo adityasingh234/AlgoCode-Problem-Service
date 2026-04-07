@@ -3,6 +3,7 @@ const express = require("express");
 const { PORT } = require("./config/server.config");
 const apiRouter = require("./routes");
 const BaseError = require("./errors/base.error");
+const errorHandler = require("./utils/errorHandler");
 
 const app = express();
 
@@ -17,12 +18,9 @@ app.get("/ping", (req, res) => {
   res.json({ message: "Problem service is alive" });
 });
 
+//Last middleware if any error comes
+app.use(errorHandler);
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-
-  try {
-    throw "Hello world";
-  } catch (error) {
-    console.log(error);
-  }
 });

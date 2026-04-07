@@ -11,3 +11,5 @@ class NotImplemented extends BaseError {
     );
   }
 }
+
+module.exports = NotImplemented;
