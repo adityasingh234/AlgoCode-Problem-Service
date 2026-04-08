@@ -30,7 +30,6 @@ const problemSchema = new Schema({
   ],
   editorial: {
     type: String,
-    required: [true, "Editorial is required"],
   },
 });
 
