@@ -7,20 +7,13 @@ function sanitizeMarkdownContent(markdownContent) {
 
   //1. Convert markdown to HTML
   const convertedHtml = marked.parse(markdownContent);
-  console.log("converted html", convertedHtml);
-
-  console.log(convertedHtml);
 
   //2. Sanitize HTML
   const sanitizedHtml = sanitizeHtmlLibrary(convertedHtml, {
-    allowedTags: sanitizeHtmlLibrary.defaults.allowedTags,
+    allowedTags: sanitizeHtmlLibrary.defaults.allowedTags.concat(["img"]),
   });
 
-  console.log("sanitized html", sanitizedHtml);
-
   const sanitizedMarkdown = turndownService.turndown(sanitizedHtml);
-
-  console.log("sanitized markdown", sanitizedMarkdown);
 
   return sanitizedMarkdown;
 }

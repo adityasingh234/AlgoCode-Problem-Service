@@ -1,4 +1,5 @@
 const { Problem } = require("../models");
+const NotFound = require("./../errors/notfound.error");
 
 class ProblemRepository {
   async createProblem(problemData) {
@@ -19,6 +20,19 @@ class ProblemRepository {
     try {
       const problems = await Problem.find({});
       return problems;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  async getProblem(id) {
+    try {
+      const problem = await Problem.findById(id);
+      if (!problem) {
+        throw new NotFound("Problem", id);
+      }
+      return problem;
     } catch (error) {
       console.log(error);
       throw error;
