@@ -13,6 +13,11 @@ class ProblemService {
     console.log("Problem created", problem);
     return problem;
   }
+
+  async getAllProblems() {
+    const problems = await this.problemRepository.getAllProblems();
+    return problems;
+  }
 }
 
 module.exports = ProblemService;
